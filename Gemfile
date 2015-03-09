@@ -26,3 +26,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
 end
+
+# Bower components through Gemfile
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chartist'
+end
