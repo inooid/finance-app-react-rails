@@ -1,11 +1,16 @@
 Header = React.createClass
   render: ->
     `<header>
-      <Logo />
+      <div className="container">
+        <Logo />
+      </div>
     </header>`
 
 Logo = React.createClass
   render: ->
-    `<h1>MoneyControl</h1>`
+    `<div className="logo icon-logo">
+      <span>Money</span>
+      <span className="light">Control</span>
+    </div>`
 
 window.Header = Header
