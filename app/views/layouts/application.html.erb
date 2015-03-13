@@ -8,7 +8,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= react_component('Header') %>
+  <%= react_component('Header', {statistics: [
+      {
+        id: 1,
+        title: 'Spend this month:',
+        euros: 76,
+        cents: 58
+      }, {
+        id: 2,
+        title: 'Average amount:',
+        euros: 4,
+        cents: 56
+      }, {
+        id: 3,
+        title: 'Total spend:',
+        euros: 189,
+        cents: 94
+      }
+    ]}) %>
 <%= yield %>
 
 </body>
