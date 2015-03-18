@@ -1,0 +1,18 @@
+---
+language: ruby
+bundler_args: "--without development production"
+cache: bundler
+rvm:
+  - 2.1.5
+env:
+  global:
+  - DB=postgresql
+before_install:
+  - sudo apt-get update
+before_script:
+  - bundle exec rake db:create
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - mkdir tmp
+  - mkdir tmp/cache
+# after_success:
+#   - bundle exec rake healthcare_deploy:travis_deploy
