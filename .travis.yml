@@ -12,7 +12,5 @@ before_install:
 before_script:
   - bundle exec rake db:create
   - RAILS_ENV=test bundle exec rake db:migrate
-  - mkdir tmp
-  - mkdir tmp/cache
 # after_success:
 #   - bundle exec rake healthcare_deploy:travis_deploy
