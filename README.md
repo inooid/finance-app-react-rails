@@ -1,5 +1,8 @@
 ## README
 
+[![Codacy Badge](https://www.codacy.com/project/badge/d49b76776f444698829572604757ce1b)](https://www.codacy.com/public/boyd1dilan/finance-app-react-rails)
+[![Code Climate](https://codeclimate.com/github/inooid/finance-app-react-rails/badges/gpa.svg)](https://codeclimate.com/github/inooid/finance-app-react-rails)
+
 Start the server by running: ``` rails s ```
 
 After that run: ``` gulp ```
@@ -13,30 +16,3 @@ If you don't see any changes being fired, try and go over to:
 `http://localhost:3001`
 
 Since gulp will launch browser-reload on there.
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-*   Ruby version
-
-*   System dependencies
-
-*   Configuration
-
-*   Database creation
-
-*   Database initialization
-
-*   How to run the test suite
-
-*   Services (job queues, cache servers, search engines, etc.)
-
-*   Deployment instructions
-
-*   ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-`rake doc:app`.
