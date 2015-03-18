@@ -1,19 +1,13 @@
-== README
+## README
 
-Start the server by running:
-```
-rails s
-```
+Start the server by running: ``` rails s ```
 
-After that run:
-```
-gulp
-```
+After that run: ``` gulp ```
 
 It will live reload on every change and will start precompiling the changes
 you make.
 
-=== IMPORTANT:
+### IMPORTANT:
 
 If you don't see any changes being fired, try and go over to:
 `http://localhost:3001`
@@ -25,24 +19,24 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+*   Ruby version
 
-* System dependencies
+*   System dependencies
 
-* Configuration
+*   Configuration
 
-* Database creation
+*   Database creation
 
-* Database initialization
+*   Database initialization
 
-* How to run the test suite
+*   How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+*   Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+*   Deployment instructions
 
-* ...
+*   ...
 
 
 Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+`rake doc:app`.
