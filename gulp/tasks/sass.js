@@ -1,11 +1,11 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var sass         = require('gulp-sass');
-var sourcemaps   = require('gulp-sourcemaps');
+// var sourcemaps   = require('gulp-sourcemaps');
 var handleErrors = require('../util/handleErrors');
 var config       = require('../config').sass;
 var autoprefixer = require('gulp-autoprefixer');
-var bourbon = require('node-bourbon').includePaths;
+// var bourbon = require('node-bourbon').includePaths;
 
 gulp.task('sass', function () {
   return gulp.src(config.src)
