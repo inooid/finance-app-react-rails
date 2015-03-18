@@ -1,5 +1,25 @@
 == README
 
+Start the server by running:
+```
+rails s
+```
+
+After that run:
+```
+gulp
+```
+
+It will live reload on every change and will start precompiling the changes
+you make.
+
+=== IMPORTANT:
+
+If you don't see any changes being fired, try and go over to:
+`http://localhost:3001`
+
+Since gulp will launch browser-reload on there.
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

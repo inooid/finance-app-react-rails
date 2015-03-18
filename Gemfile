@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
-gem 'bourbon'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -26,8 +25,6 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'guard'
-  gem 'guard-livereload', '~> 2.4', require: false
   gem 'rb-readline'
 end
 

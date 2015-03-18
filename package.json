@@ -1,0 +1,51 @@
+{
+  "name": "finance-app",
+  "description": "Finance-app with gulp, flux and react",
+  "engines": {
+    "node": "0.10.36",
+    "npm": "2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/inooid/finance-app-react-rails.git"
+  },
+  "scripts": {
+    "postinstall": "gulp build"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify"
+    ]
+  },
+  "dependencies": {
+    "browser-sync": "^2.3.1",
+    "browserify": "^9.0.3",
+    "coffeeify": "^1.0.0",
+    "del": "latest",
+    "gulp": "latest",
+    "gulp-autoprefixer": "latest",
+    "gulp-changed": "^1.2.1",
+    "gulp-filesize": "latest",
+    "gulp-iconfont": "latest",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "latest",
+    "gulp-rev": "latest",
+    "gulp-rev-collector": "latest",
+    "gulp-sass": "latest",
+    "gulp-sequence": "latest",
+    "gulp-sourcemaps": "latest",
+    "gulp-swig": "latest",
+    "gulp-util": "latest",
+    "lodash": "^3.5.0",
+    "merge-stream": "latest",
+    "node-bourbon": "latest",
+    "pretty-hrtime": "^1.0.0",
+    "require-dir": "latest",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "latest"
+  },
+  "devDependencies": {
+    "gulp-watch": "^4.1.1"
+  }
+}
