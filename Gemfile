@@ -14,7 +14,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'slim-rails'
+# gem 'slim-rails'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 group :development, :test do
@@ -25,7 +25,6 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'pry-rails'
   gem 'better_errors'
-  gem 'rb-readline'
 end
 
 # Bower components through Gemfile
