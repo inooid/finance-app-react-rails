@@ -41,6 +41,7 @@
     "merge-stream": "latest",
     "node-bourbon": "latest",
     "pretty-hrtime": "^1.0.0",
+    "reactify": "^1.1.0",
     "require-dir": "latest",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "latest"
