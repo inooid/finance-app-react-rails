@@ -4,31 +4,10 @@
   <title>FinanceApp</title>
   <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,700,300,600,400' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= react_component('Header', {statistics: [
-      {
-        id: 1,
-        title: 'Spend this month:',
-        euros: 76,
-        cents: 58
-      }, {
-        id: 2,
-        title: 'Average amount:',
-        euros: 4,
-        cents: 56
-      }, {
-        id: 3,
-        title: 'Total spend:',
-        euros: 189,
-        cents: 94
-      }
-    ]}) %>
-  <div class="container app-content">
-    <%= yield %>
-  </div>
-
+  <div id="main"></div>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

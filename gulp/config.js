@@ -1,5 +1,6 @@
 var publicAssets = "./public/assets";
 var sourceFiles  = "./gulp/assets";
+var reactify     = require('reactify');
 
 module.exports = {
   publicAssets: publicAssets,
@@ -22,7 +23,8 @@ module.exports = {
   },
   browserify: {
     bundleConfigs: [{
-      entries: sourceFiles + '/javascripts/global.coffee',
+      entries: sourceFiles + '/javascripts/global.js',
+      transform: [reactify],
       dest: publicAssets + '/javascripts',
       outputName: 'global.js',
       extensions: ['.js','.coffee']
