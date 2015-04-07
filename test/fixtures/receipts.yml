@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  euros: 1
+  cents: 1
+  date: 2015-04-07 17:18:07
+
+two:
+  euros: 1
+  cents: 1
+  date: 2015-04-07 17:18:07
