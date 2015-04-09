@@ -32,6 +32,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
+group :test do
+  gem 'codeclimate-test-reporter', require: false
+end
+
 # Bower components through Gemfile
 source 'https://rails-assets.org' do
   gem 'rails-assets-chartist'
