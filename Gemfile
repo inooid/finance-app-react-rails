@@ -17,14 +17,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'slim-rails'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
+group :develpment do
+  gem 'quiet_assets'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'rubocop', require: false
+  gem 'brakeman', require: false
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
-  gem 'rubocop', require: false
-  gem 'quiet_assets'
-  gem 'pry-rails'
-  gem 'better_errors'
 end
 
 # Bower components through Gemfile
