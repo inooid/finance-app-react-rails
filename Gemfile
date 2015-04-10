@@ -17,6 +17,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'slim-rails'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
+# JSON web tokens for API security
+gem 'jwt'
+
 group :develpment do
   gem 'quiet_assets'
   gem 'pry-rails'
