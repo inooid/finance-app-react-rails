@@ -1,5 +1,6 @@
 module Api
   module V1
+    # Shows and creates receipts
     class ReceiptsController < ApplicationController
       def index
         render json: Receipt.select(:id, :euros, :cents, :date)
