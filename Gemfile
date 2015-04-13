@@ -27,6 +27,10 @@ group :develpment do
   gem 'better_errors'
   gem 'rubocop', require: false
   gem 'brakeman', require: false
+  gem 'guard'
+  gem 'guard-rspec', require: false
+  gem 'terminal-notifier'
+  gem 'terminal-notifier-guard'
 end
 
 group :development, :test do
@@ -35,6 +39,7 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
+  gem 'timecop'
 end
 
 group :test do
