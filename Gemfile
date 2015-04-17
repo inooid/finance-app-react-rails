@@ -16,6 +16,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'slim-rails'
 gem 'react-rails', '~> 1.0'
 
+# Cross-domain AJAX calls
+gem 'rack-cors', require: 'rack/cors'
+
 # Authentication for API
 gem 'devise'
 gem 'jwt'

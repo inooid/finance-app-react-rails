@@ -26,5 +26,12 @@ module FinanceApp
     # Make public assets requireable in manifest files
     config.assets.paths << Rails.root.join("public", "assets", "stylesheets")
     config.assets.paths << Rails.root.join("public", "assets", "javascripts")
+
+    config.middleware.insert_before 0, 'Rack::Cors' do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options]
+      end
+    end
   end
 end
