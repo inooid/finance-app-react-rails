@@ -20,6 +20,7 @@
   "dependencies": {
     "coffeeify": "^1.0.0",
     "del": "latest",
+    "flux": "^2.0.1",
     "lodash": "^3.5.0",
     "merge-stream": "latest",
     "node-bourbon": "latest",
