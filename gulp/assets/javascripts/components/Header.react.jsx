@@ -56,4 +56,4 @@ var StatisticsItem = React.createClass({
   }
 });
 
-window.Header = Header;
+module.exports = Header;
