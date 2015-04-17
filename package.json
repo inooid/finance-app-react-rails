@@ -28,6 +28,7 @@
     "react-router": "^0.13.2",
     "reactify": "^1.1.0",
     "require-dir": "latest",
+    "superagent": "^1.2.0"
   },
   "devDependencies": {
     "browser-sync": "^2.3.1",
