@@ -23,7 +23,7 @@ module.exports = {
   },
   browserify: {
     bundleConfigs: [{
-      entries: sourceFiles + '/javascripts/global.js',
+      entries: sourceFiles + '/javascripts/app.jsx',
       transform: [reactify],
       dest: publicAssets + '/javascripts',
       outputName: 'global.js',
