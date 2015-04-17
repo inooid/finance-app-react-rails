@@ -3,7 +3,7 @@ module Api
     # Shows and creates receipts
     class ReceiptsController < ApplicationController
       def index
-        render json: Receipt.select(:id, :euros, :cents, :date)
+        @receipts = Receipt.select(:id, :euros, :cents, :date)
       end
 
       def by_month
