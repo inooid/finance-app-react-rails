@@ -38,16 +38,12 @@ var ReceiptStore = assign({}, EventEmitter.prototype, {
 });
 
 ReceiptStore.dispatchToken = FinanceAppDispatcher.register(function(payload) {
-  console.log(payload);
-
   var action = payload.action;
-
-  console.log(action.type);
 
   switch(action.type) {
 
     case ActionTypes.RECEIVE_RECEIPTS:
-      _receipts = action.json.receipts;
+      _receipts = action.json;
       ReceiptStore.emitChange();
       break;
 

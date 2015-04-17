@@ -6,7 +6,7 @@ var ActionTypes = SmallConstants.ActionTypes;
 module.exports = {
 
   receiveReceipts: function(json) {
-    SmallAppDispatcher.handleServerAction({
+    FinanceAppDispatcher.handleServerAction({
       type: ActionTypes.RECEIVE_RECEIPTS,
       json: json
     });
