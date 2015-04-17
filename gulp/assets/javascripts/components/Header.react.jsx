@@ -3,10 +3,12 @@ var React = require('react');
 var Header = React.createClass({
   render: function() {
     return (
-      <div className="container">
-        <Logo />
-        <Statistics initialStatistics={ this.props.statistics } />
-      </div>
+      <header>
+        <div className="container">
+          <Logo />
+          <Statistics initialStatistics={ this.props.statistics } />
+        </div>
+      </header>
     );
   }
 });
