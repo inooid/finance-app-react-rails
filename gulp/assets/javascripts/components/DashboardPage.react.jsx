@@ -35,24 +35,24 @@ var ReceiptPage = React.createClass({
   render: function() {
     console.log(this.state)
     return (
-      <div>
-        <div className="row">
-          <ReceiptsList receipts={this.state.receipts} />
-        </div>
+      <div className="container">
+        <ReceiptsList receipts={this.state.receipts} />
       </div>
     );
   }
 });
 
-var ReceiptItem = React.createClass({
+var ReceiptRow = React.createClass({
   render: function() {
     var thisReceipt = this.props.receipt;
-    var thisDate = moment(thisReceipt.date)
+    var date = moment(thisReceipt.date).format("hh:mm Do of MMMM YYYY")
 
     return (
-      <li className="receipt">
-        <div className="receipt__body">&euro;{thisReceipt.euros},{thisReceipt.cents} <span className="receipt__date"> - { thisDate.format("dddd, MMMM Do YYYY, h:mm:ss a") }</span></div>
-      </li>
+      <tr className="receipt">
+        <td className="receipt__id">{thisReceipt.id}</td>
+        <td className="receipt__amount">&euro;{thisReceipt.amount}</td>
+        <td className="receipt__date">{date}</td>
+      </tr>
       );
   }
 });
@@ -60,11 +60,20 @@ var ReceiptItem = React.createClass({
 var ReceiptsList = React.createClass({
   render: function() {
     return (
-      <ul className="large-8 medium-10 small-12 small-centered columns">
-        {this.props.receipts.map(function(receipt, index){
-          return <ReceiptItem receipt={receipt} key={"receipt-" + index}/>
-        })}
-      </ul>
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Amount:</td>
+            <td>Date:</td>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.receipts.map(function(receipt, index){
+            return <ReceiptRow receipt={receipt} key={"receipt-" + index}/>
+          })}
+        </tbody>
+      </table>
     );
   }
 });
