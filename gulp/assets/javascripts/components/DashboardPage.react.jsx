@@ -3,6 +3,7 @@ var WebAPIUtils = require('../utils/WebAPIUtils.js');
 var ReceiptStore = require('../stores/ReceiptStore.react.jsx');
 // var ErrorNotice = require('../components/common/ErrorNotice.react.jsx');
 var ReceiptActionCreators = require('../actions/ReceiptActionCreators.react.jsx');
+var moment = require('moment');
 var Router = require('react-router');
 var Link = Router.Link;
 
@@ -32,6 +33,7 @@ var ReceiptPage = React.createClass({
   },
 
   render: function() {
+    console.log(this.state)
     return (
       <div>
         <div className="row">
@@ -45,16 +47,11 @@ var ReceiptPage = React.createClass({
 var ReceiptItem = React.createClass({
   render: function() {
     var thisReceipt = this.props.receipt;
+    var thisDate = moment(thisReceipt.date)
 
     return (
       <li className="receipt">
-        <div className="receipt__title">
-          <Link to="receipt" params={ {receiptId: thisReceipt.id} }>
-            {thisReceipt.id}
-          </Link>
-        </div>
-        <div className="receipt__body">{thisReceipt.euros},{thisReceipt.euros}</div>
-        <span className="receipt__date"> - {thisReceipt.date}</span>
+        <div className="receipt__body">&euro;{thisReceipt.euros},{thisReceipt.cents} <span className="receipt__date"> - { thisDate.format("dddd, MMMM Do YYYY, h:mm:ss a") }</span></div>
       </li>
       );
   }
