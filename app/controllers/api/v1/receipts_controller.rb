@@ -4,6 +4,7 @@ module Api
     class ReceiptsController < ApplicationController
       def index
         @receipts = Receipt.select(:id, :euros, :cents, :date)
+        @averageAmount = Receipt.average(:euros, :cents)
       end
 
       def by_month

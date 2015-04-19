@@ -4,4 +4,5 @@ json.array!(@receipts) do |receipt|
   json.euros receipt.euros
   json.cents receipt.cents
   json.date receipt.date
+  json.average @averageAmount
 end
