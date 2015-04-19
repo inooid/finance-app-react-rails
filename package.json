@@ -29,6 +29,7 @@
     "node-bourbon": "latest",
     "object-assign": "^2.0.0",
     "pretty-hrtime": "^1.0.0",
+    "react": "^0.13.2",
     "react-router": "^0.13.2",
     "reactify": "^1.1.0",
     "require-dir": "latest",
