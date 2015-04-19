@@ -18,6 +18,7 @@
     ]
   },
   "dependencies": {
+    "chartist": "^0.7.4",
     "coffeeify": "^1.0.0",
     "del": "latest",
     "flux": "^2.0.1",
@@ -28,7 +29,6 @@
     "node-bourbon": "latest",
     "object-assign": "^2.0.0",
     "pretty-hrtime": "^1.0.0",
-    "react-chartist": "^0.5.0",
     "react-router": "^0.13.2",
     "reactify": "^1.1.0",
     "require-dir": "latest",
