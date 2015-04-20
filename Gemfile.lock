@@ -1,6 +1,5 @@
 GEM
   remote: https://rubygems.org/
-  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
@@ -173,7 +172,6 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.0)
       sprockets-rails
-    rails-assets-chartist (0.7.3)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -299,7 +297,6 @@ DEPENDENCIES
   quiet_assets
   rack-cors
   rails (= 4.2.0)
-  rails-assets-chartist!
   react-rails (~> 1.0)
   rspec-rails (~> 3.0)
   rubocop
