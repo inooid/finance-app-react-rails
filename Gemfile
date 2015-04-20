@@ -47,8 +47,3 @@ end
 group :test do
   gem 'codeclimate-test-reporter', require: false
 end
-
-# Bower components through Gemfile
-source 'https://rails-assets.org' do
-  gem 'rails-assets-chartist'
-end
