@@ -39,11 +39,11 @@ var browserifyTask = function(callback, devMode) {
       bundleLogger.watch(bundleConfig.outputName);
     } else {
       if(bundleConfig.require) {
-        b.require(bundleConfig.require)
-      };
+        b.require(bundleConfig.require);
+      }
       if(bundleConfig.external) {
-        b.external(bundleConfig.external)
-      };
+        b.external(bundleConfig.external);
+      }
     }
 
     var reportFinished = function() {

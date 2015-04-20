@@ -1,7 +1,6 @@
 var FinanceAppDispatcher = require('../dispatcher/FinanceAppDispatcher.js');
 var SmallConstants = require('../constants/SmallConstants.js');
 var EventEmitter = require('events').EventEmitter;
-var WebAPIUtils = require('../utils/WebAPIUtils.js');
 var assign = require('object-assign');
 
 var ActionTypes = SmallConstants.ActionTypes;

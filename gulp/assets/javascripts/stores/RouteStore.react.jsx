@@ -27,7 +27,7 @@ var RouteStore = assign({}, EventEmitter.prototype, {
   },
 
   removeChangeListener: function() {
-    this.removeListener(CHANGE_EVENT, callback);
+    this.removeListener(CHANGE_EVENT);
   },
 
   getRouter: function() {
@@ -52,13 +52,13 @@ RouteStore.dispatchToken = FinanceAppDispatcher.register(function(payload) {
       router.transitionTo(action.route);
       break;
 
-    case ActionTypes.LOGIN_RESPONSE:
-      if (SessionStore.isLoggedIn()) {
-        router.transitionTo('app');
-        // Dirty hack, need to figure this out
-        $(document).foundation();
-      }
-      break;
+    // case ActionTypes.LOGIN_RESPONSE:
+    //   if (SessionStore.isLoggedIn()) {
+    //     router.transitionTo('app');
+    //     // Dirty hack, need to figure this out
+    //     $(document).foundation();
+    //   }
+    //   break;
 
     case ActionTypes.RECEIVE_CREATED_STORY:
       router.transitionTo('app');

@@ -12,8 +12,8 @@ module.exports = {
       // .set('Authorization', sessionStorage.getItem('accessToken'))
       .end(function(error, res){
         if (res) {
-          receipts = JSON.parse(res.text);
-          ServerActionCreators.receiveReceipts(receipts);
+          var json = JSON.parse(res.text);
+          ServerActionCreators.receiveReceipts(json);
         }
       });
   },
