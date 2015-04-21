@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :receipt do
-    euros 10
-    cents 50
+    amount 10.50
   end
 end
