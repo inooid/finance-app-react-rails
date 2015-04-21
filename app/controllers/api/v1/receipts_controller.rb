@@ -3,12 +3,7 @@ module Api
     # Shows and creates receipts
     class ReceiptsController < ApplicationController
       def index
-        @receipts = Receipt.select(:id, :euros, :cents, :date)
-        @averageAmount = Receipt.average(:euros, :cents)
-      end
-
-      def by_month
-        render json: Receipt.by_month(date_param)
+        @receipts = Receipt.select(:id, :amount, :date)
       end
 
       private

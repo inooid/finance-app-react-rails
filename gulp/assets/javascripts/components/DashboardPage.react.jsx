@@ -47,22 +47,20 @@ var ReceiptPage = React.createClass({
   },
 
   _formatDataForChart: function(receipts) {
-    labels = []
-    series = []
-    average = []
+    var labels = [];
+    var series = [];
 
     receipts.forEach(function(obj) {
       labels.push(
         moment(obj.date).format("DD-MM-YYYY")
       );
       series.push(obj.amount);
-      average.push(obj.average);
     });
 
     return {
       labels: labels,
-      series: [average, series]
-    }
+      series: [series]
+    };
   },
 
   render: function() {
