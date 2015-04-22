@@ -2,16 +2,11 @@ module Api
   module V1
     # Shows and creates receipts
     class ReceiptsController < ApplicationController
+      has_scope :month
+      has_scope :year
+
       def index
-        @receipts = Receipt.select(:id, :amount, :date)
-      end
-
-      private
-
-      def date_param
-        Date.parse(params.permit(:date)[:date] || Date.today.to_s)
-      rescue ArgumentError
-        Date.today
+        @receipts = apply_scopes(Receipt).select(:id, :amount, :date)
       end
     end
   end
