@@ -23,6 +23,9 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'devise'
 gem 'jwt'
 
+# Controller filtering scopes
+gem 'has_scope'
+
 group :develpment do
   gem 'quiet_assets'
   gem 'pry-rails'

@@ -112,6 +112,9 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     haml (4.0.6)
       tilt
+    has_scope (0.6.0)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     highline (1.6.21)
     hitimes (1.2.2)
     i18n (0.7.0)
@@ -289,6 +292,7 @@ DEPENDENCIES
   factory_girl_rails
   guard
   guard-rspec
+  has_scope
   jbuilder (~> 2.0)
   jquery-rails
   jwt
