@@ -244,6 +244,8 @@ GEM
       rdoc (~> 4.0)
     sexp_processor (4.5.0)
     shellany (0.0.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     simplecov (0.9.2)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -308,6 +310,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0)
   rubocop
   sdoc (~> 0.4.0)
+  shoulda-matchers
   spring
   terminal-notifier
   terminal-notifier-guard
