@@ -23,6 +23,7 @@ gem 'rack-cors', require: 'rack/cors'
 # Authentication for API
 gem 'jwt'
 gem 'simple_command'
+gem 'bcrypt-ruby', require: 'bcrypt'
 
 # Controller filtering scopes
 gem 'has_scope'
