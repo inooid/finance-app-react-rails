@@ -8,6 +8,8 @@ class Receipt < ActiveRecord::Base
   validates :amount, presence: true
 
   # - Scopes-------------------------------------------------------------------#
+  scope :spend_total, -> { sum(:amount) }
+  scope :spend_this_month, -> { month(Date.today.month).sum(:amount) }
 
   # Gets receipts for a specific month number (default scoped for Date.today)
   # @param month_number [String/Integer] the month number to be querying for
