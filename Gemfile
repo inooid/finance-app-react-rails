@@ -21,8 +21,8 @@ gem 'react-rails', '~> 1.0'
 gem 'rack-cors', require: 'rack/cors'
 
 # Authentication for API
-gem 'devise'
 gem 'jwt'
+gem 'simple_command'
 
 # Controller filtering scopes
 gem 'has_scope'
