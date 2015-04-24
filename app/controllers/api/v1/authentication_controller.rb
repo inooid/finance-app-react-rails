@@ -9,9 +9,9 @@ module API
                                                params[:password])
 
         if authentication.success?
-          render json: { auth_token: authentication.result }
+          render json: { status: 200, auth_token: authentication.result }
         else
-          render json: { error: authentication.errors }, status: :unauthorized
+          render json: { status: :unauthorized, error: authentication.errors }, status: :unauthorized
         end
       end
     end
