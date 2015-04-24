@@ -55,4 +55,5 @@ end
 group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'shoulda-matchers'
+  gem 'faker'
 end
