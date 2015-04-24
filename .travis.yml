@@ -1,16 +1,16 @@
----
 language: ruby
 bundler_args: "--without development production"
 cache: bundler
 rvm:
-  - 2.1.5
+- 2.2.1
 env:
   global:
   - DB=postgresql
 before_install:
-  - sudo apt-get update
+- sudo apt-get update
 before_script:
-  - bundle exec rake db:create
-  - RAILS_ENV=test bundle exec rake db:migrate
-# after_success:
-#   - bundle exec rake healthcare_deploy:travis_deploy
+- bundle exec rake db:create
+- RAILS_ENV=test bundle exec rake db:migrate
+notifications:
+  slack:
+    secure: l/t1UkN2POAii0w/+miRFMjgQ6nJft9MoEOHyfDrGsW6bkpfkbXUhvsIaTh+wDOG+E4h+jN38CDcbpgl0dzFYdk9nUbxursvEz74eMYjYX4qgrTTZ+Sh3syzJobUcVGOt+Brc3LL3H+I0MN8AJr+HmVapd7GfTIKBDVwHP9FeL8=
