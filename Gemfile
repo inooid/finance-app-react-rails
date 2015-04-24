@@ -36,6 +36,7 @@ group :develpment do
   gem 'guard-rspec', require: false
   gem 'terminal-notifier'
   gem 'terminal-notifier-guard'
+  gem 'awesome_print'
 end
 
 group :development, :test do
