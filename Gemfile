@@ -20,6 +20,9 @@ gem 'react-rails', '~> 1.0'
 # Cross-domain AJAX calls
 gem 'rack-cors', require: 'rack/cors'
 
+# ActiveRecord extension for common validations
+gem 'louche'
+
 # Authentication for API
 gem 'jwt'
 gem 'simple_command'

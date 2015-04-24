@@ -130,6 +130,8 @@ GEM
       rb-inotify (>= 0.9)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
+    louche (0.1.1)
+      activemodel (>= 4.0.0)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -292,6 +294,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jwt
+  louche
   pg
   pry-rails
   quiet_assets
