@@ -17,7 +17,7 @@ class Receipt < ActiveRecord::Base
   #   number (of todays year)
   def self.month(month_number)
     date = Date.today.change(month: month_number.to_i)
-    where('date >= ? AND date <= ?', date.beginning_of_month, date.end_of_month)
+    date_range_for(date, 'month')
   rescue ArgumentError
     return
   end
@@ -27,12 +27,22 @@ class Receipt < ActiveRecord::Base
   # @return [ActiveRecord::Relation] collection of receipts matching the year
   def self.year(year_number)
     date = Date.today.change(year: year_number.to_i)
-    where('date >= ? AND date <= ?', date.beginning_of_year, date.end_of_year)
+    date_range_for(date, 'year')
   rescue ArgumentError
     return
   end
 
   private
+
+  def self.date_range_for(date, type)
+    case type
+    when 'month'
+      where('date >= ? AND date <= ?', date.beginning_of_month,
+            date.end_of_month)
+    when 'year'
+      where('date >= ? AND date <= ?', date.beginning_of_year, date.end_of_year)
+    end
+  end
 
   # Makes sure that the date is always set to DateTime.now
   # @return [DateTime] the date of the receipt
