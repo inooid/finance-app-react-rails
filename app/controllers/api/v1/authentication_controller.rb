@@ -11,7 +11,8 @@ module API
         if authentication.success?
           render json: { status: 200, auth_token: authentication.result }
         else
-          render json: { status: :unauthorized, error: authentication.errors }, status: :unauthorized
+          render json: { status: :unauthorized, error: authentication.errors },
+                 status: :unauthorized
         end
       end
     end

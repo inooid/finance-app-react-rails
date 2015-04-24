@@ -16,10 +16,8 @@ module API
       api_request = AuthenticateApiRequest.new(request.headers)
       @current_user = api_request.call.result
 
-      render json: {
-        status: 401,
-        error: 'Not authorized'
-      }, status: :unauthorized unless @current_user
+      render json: { status: 401, error: 'Not authorized' },
+             status: :unauthorized unless @current_user
     end
   end
 end
