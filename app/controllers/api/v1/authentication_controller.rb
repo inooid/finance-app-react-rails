@@ -1,12 +1,12 @@
 module API
   module V1
     # Controls the authentication process
-    class AuthenticationController < ApplicationController
+    class AuthenticationController < API::APIController
       skip_before_action :authenticate_request
 
       def authenticate
         authentication = AuthenticateUser.call(params[:email],
-                                               params[:password])
+                                                      params[:password])
 
         if authentication.success?
           render json: { auth_token: authentication.result }

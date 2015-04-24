@@ -1,6 +1,6 @@
 # Sets up the authentication for the user
 class AuthenticateUser
-  # Used for the 'Simple_Command' gem
+  # put SimpleCommand before the class' ancestors chain
   prepend SimpleCommand
 
   # Sets instance variables for email and password
@@ -11,10 +11,10 @@ class AuthenticateUser
     @password = password
   end
 
-  # If user is logged in, creates a new JSONWebToken with the user_id
-  # @return [JSONWebToken] the JSONWebToken that will be send back to the client
+  # If user is logged in, creates a new JsonWebToken with the user_id
+  # @return [JsonWebToken] the JsonWebToken that will be send back to the client
   def call
-    JSONWebToken.encode(user_id: user.id) if user
+    JsonWebToken.encode(user_id: user.id) if user
   end
 
   private

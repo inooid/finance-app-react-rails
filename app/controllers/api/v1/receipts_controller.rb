@@ -1,7 +1,7 @@
 module API
   module V1
     # Shows and creates receipts
-    class ReceiptsController < ApplicationController
+    class ReceiptsController < API::APIController
       has_scope :month, :year
 
       def index
