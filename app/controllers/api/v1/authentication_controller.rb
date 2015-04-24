@@ -6,7 +6,7 @@ module API
 
       def authenticate
         authentication = AuthenticateUser.call(params[:email],
-                                                      params[:password])
+                                               params[:password])
 
         if authentication.success?
           render json: { auth_token: authentication.result }
