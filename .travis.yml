@@ -11,6 +11,9 @@ before_install:
 before_script:
 - bundle exec rake db:create
 - RAILS_ENV=test bundle exec rake db:migrate
+addons:
+  code_climate:
+    repo_token: 1f6053ea97619192fa5c72717258e84d0c24f0b6c67dfc595a19c9303a4124b8
 notifications:
   slack:
     secure: l/t1UkN2POAii0w/+miRFMjgQ6nJft9MoEOHyfDrGsW6bkpfkbXUhvsIaTh+wDOG+E4h+jN38CDcbpgl0dzFYdk9nUbxursvEz74eMYjYX4qgrTTZ+Sh3syzJobUcVGOt+Brc3LL3H+I0MN8AJr+HmVapd7GfTIKBDVwHP9FeL8=
