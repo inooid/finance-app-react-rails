@@ -34,7 +34,7 @@ class Receipt < ActiveRecord::Base
 
   private
 
-  # Makes sure that the date is always set to DateTime.now
+  # Makes sure that the date is always set to DateTime.now or itself
   # @return [DateTime] the date of the receipt
   def default_values
     self.date ||= DateTime.now
