@@ -2,6 +2,7 @@
 
 [![Codacy Badge](https://www.codacy.com/project/badge/d49b76776f444698829572604757ce1b)](https://www.codacy.com/public/boyd1dilan/finance-app-react-rails)
 [![Code Climate](https://codeclimate.com/github/inooid/finance-app-react-rails/badges/gpa.svg)](https://codeclimate.com/github/inooid/finance-app-react-rails)
+[![Test Coverage](https://codeclimate.com/github/inooid/finance-app-react-rails/badges/coverage.svg)](https://codeclimate.com/github/inooid/finance-app-react-rails)
 [![Build Status](https://travis-ci.org/inooid/finance-app-react-rails.svg?branch=master)](https://travis-ci.org/inooid/finance-app-react-rails)
 
 Start the server by running: ``` rails s ```
