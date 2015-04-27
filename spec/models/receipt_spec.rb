@@ -25,6 +25,9 @@ RSpec.describe Receipt, type: :model do
   # -- 1. #month --------------------------------------------------------------#
   describe '#month' do
     context 'when having 2 receipts in this month and 1 two months ago' do
+      @two_months_ago_number = (Time.zone.now - 2.months).month
+      let(:two_months_ago_number) { (Time.zone.now - 2.months).month }
+
       before do
         2.times { FactoryGirl.create(:receipt) }
         FactoryGirl.create(:receipt, date: (now - 2.months))
@@ -42,11 +45,15 @@ RSpec.describe Receipt, type: :model do
         end
       end
 
-      context "@param month number from 2 months ago (#{(Time.zone.now - 2.months).month}) as param" do
+      context "@param month number from 2 months ago (#{@two_months_ago_number}) as param" do
         subject { Receipt.month((now - 2.months).month) }
 
         it 'should find 1 receipt for the month' do
           expect(subject.count).to eq(1)
+        end
+
+        it "should have the month number: #{@two_months_ago_number}" do
+          expect(subject.first.date.month).to eq(two_months_ago_number)
         end
       end
     end
