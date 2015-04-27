@@ -1,40 +1,61 @@
 require 'rails_helper'
 
 RSpec.describe Receipt, type: :model do
-  context '.by_month' do
-    before do
-      Timecop.freeze
+  # - Variables ---------------------------------------------------------------#
+  let(:receipt) { FactoryGirl.create(:receipt) }
+  let(:now) { Timecop.freeze(Time.zone.now) }
+
+  # - Fields ------------------------------------------------------------------#
+  # -- 1. amount --------------------------------------------------------------#
+  describe 'amount' do
+    subject { receipt }
+    it { is_expected.to validate_presence_of(:amount) }
+  end
+
+  # -- 2. date ----------------------------------------------------------------#
+  describe 'date' do
+    subject { receipt.date.is_a?(ActiveSupport::TimeWithZone) }
+
+    it 'is expected to be a \'ActiveSupport::TimeWithZone\'' do
+      is_expected.to eq(true)
     end
+  end
 
-    context 'when it has receipts' do
-      # before do
-      #   create(:receipt, date: DateTime.now.beginning_of_month)
-      #   create(:receipt, date: DateTime.now.beginning_of_month + 2.days)
-      #   create(:receipt, date: DateTime.now.beginning_of_month + 5.weeks)
-      #   create(:receipt, date: DateTime.now.beginning_of_month + 2.months)
-      #   create(:receipt, date: DateTime.now.beginning_of_month - 1.months)
-      # end
+  # - Methods -----------------------------------------------------------------#
+  # -- 1. #month --------------------------------------------------------------#
+  describe '#month' do
+    context 'when having 2 receipts in this month and 1 two months ago' do
+      @two_months_ago_number = (Time.zone.now - 2.months).month
+      let(:two_months_ago_number) { (Time.zone.now - 2.months).month }
 
-      # context 'when no date param' do
-      #   subject { Receipt.by_month }
+      before do
+        2.times { FactoryGirl.create(:receipt) }
+        FactoryGirl.create(:receipt, date: (now - 2.months))
+      end
 
-      #   let(:expected) do
-      #     [build(:receipt, date: DateTime.now.beginning_of_month),
-      #      build(:receipt, date: DateTime.now.beginning_of_month + 2.days)]
-      #   end
+      it 'should have 3 total receipts' do
+        expect(Receipt.all.count).to eq(3)
+      end
 
-      #   it 'returns an array with receipts' do
-      #     expect(subject).to match_array(expected)
-      #   end
-      # end
+      context "@param current month number (#{Time.zone.now.month}) as param" do
+        subject { Receipt.month(now.month) }
 
-      # context 'when has date param that has DateTime two months from now' do
-      #   subject { Receipt.by_month(DateTime.now + 2.months) }
+        it 'should find 2 receipts' do
+          expect(subject.count).to eq(2)
+        end
+      end
 
-      #   it 'should find one receipt' do
-      #     expect(subject.count).to eq(1)
-      #   end
-      # end
+      context "@param month number from 2 months ago (#{@two_months_ago_number}) as param" do
+        subject { Receipt.month((now - 2.months).month) }
+
+        it 'should find 1 receipt for the month' do
+          expect(subject.count).to eq(1)
+        end
+
+        it "should have the month number: #{@two_months_ago_number}" do
+          expect(subject.first.date.month).to eq(two_months_ago_number)
+        end
+      end
     end
   end
 end
