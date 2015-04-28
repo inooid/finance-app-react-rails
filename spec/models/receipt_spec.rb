@@ -58,4 +58,24 @@ RSpec.describe Receipt, type: :model do
       end
     end
   end
+
+  # -- 2. #spend_total --------------------------------------------------------#
+  describe '#spend_total' do
+    subject { Receipt.spend_total }
+
+    context 'when there is 3 receipts with the amount: 10.50' do
+      before do
+        3.times { FactoryGirl.create(:receipt) }
+      end
+
+      it { is_expected.to eq(31.5) }
+    end
+
+    context 'when there is 3 receipts with the amount: 13.60' do
+      before do
+        3.times { FactoryGirl.create(:receipt, amount: 13.60) }
+      end
+      it { is_expected.to eq(40.8) }
+    end
+  end
 end
