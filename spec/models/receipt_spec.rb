@@ -78,4 +78,19 @@ RSpec.describe Receipt, type: :model do
       it { is_expected.to eq(40.8) }
     end
   end
+
+  describe '#default_values' do
+    describe 'the date of a receipt' do
+      context 'when building the receipt, but not saving yet' do
+        subject { FactoryGirl.build(:receipt).date }
+        it { is_expected.to eq(nil) }
+      end
+
+      context 'when saving the receipt, it should have a date' do
+        subject { FactoryGirl.create(:receipt).date }
+        it { is_expected.not_to eq(nil) }
+        it { is_expected.to be_an(ActiveSupport::TimeWithZone) }
+      end
+    end
+  end
 end
