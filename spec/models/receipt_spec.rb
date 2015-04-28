@@ -14,11 +14,8 @@ RSpec.describe Receipt, type: :model do
 
   # -- 2. date ----------------------------------------------------------------#
   describe 'date' do
-    subject { receipt.date.is_a?(ActiveSupport::TimeWithZone) }
-
-    it 'is expected to be a \'ActiveSupport::TimeWithZone\'' do
-      is_expected.to eq(true)
-    end
+    subject { receipt.date }
+    it { is_expected.to be_a(ActiveSupport::TimeWithZone) }
   end
 
   # - Methods -----------------------------------------------------------------#
