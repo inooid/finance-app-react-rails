@@ -5,6 +5,10 @@ RSpec.describe Receipt, type: :model do
   let(:receipt) { FactoryGirl.create(:receipt) }
   let(:now) { Timecop.freeze(Time.zone.now) }
 
+  # - Before/After hooks ------------------------------------------------------#
+  before  { Timecop.freeze(2015, 5, 15, 12, 0, 0) }
+  after   { Timecop.return }
+
   # - Fields ------------------------------------------------------------------#
   # -- 1. amount --------------------------------------------------------------#
   describe 'amount' do
@@ -34,7 +38,7 @@ RSpec.describe Receipt, type: :model do
         expect(Receipt.all.count).to eq(3)
       end
 
-      context "@param current month number (#{Time.zone.now.month}) as param" do
+      context '@param current month number: 5 (May)' do
         subject { Receipt.month(now.month) }
 
         it 'should find 2 receipts' do
@@ -42,14 +46,14 @@ RSpec.describe Receipt, type: :model do
         end
       end
 
-      context "@param month number from 2 months ago (#{@two_months_ago_number}) as param" do
+      context '@param month number from 2 months ago (March)' do
         subject { Receipt.month((now - 2.months).month) }
 
         it 'should find 1 receipt for the month' do
           expect(subject.count).to eq(1)
         end
 
-        it "should have the month number: #{@two_months_ago_number}" do
+        it 'should have the month number: 3 (March)' do
           expect(subject.first.date.month).to eq(two_months_ago_number)
         end
       end
