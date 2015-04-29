@@ -80,6 +80,7 @@ RSpec.describe Receipt, type: :model do
     end
   end
 
+  # -- 4. #default_values -----------------------------------------------------#
   describe '#default_values' do
     describe 'the date of a receipt' do
       context 'when building the receipt, but not saving yet' do
