@@ -132,4 +132,15 @@ RSpec.describe Receipt, type: :model do
       end
     end
   end
+
+  # -- 5. #spend_this_month ---------------------------------------------------#
+  describe '#spend_this_month' do
+    context 'when having 3 receipts of 10.50' do
+      before  { 3.times { FactoryGirl.create(:receipt) } }
+      subject { Receipt.spend_this_month }
+
+      # 3 times 10.50 = 31.5
+      it { is_expected.to eq(31.5) }
+    end
+  end
 end
