@@ -119,7 +119,7 @@ RSpec.describe Receipt, type: :model do
 
   # -- 4. #default_values -----------------------------------------------------#
   describe '#default_values' do
-    describe 'the date of a receipt' do
+    describe 'automatically adding of the date of a receipt' do
       context 'when building the receipt, but not saving yet' do
         subject { FactoryGirl.build(:receipt).date }
         it { is_expected.to eq(nil) }
