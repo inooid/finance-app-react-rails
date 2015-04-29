@@ -57,6 +57,10 @@ RSpec.describe Receipt, type: :model do
           expect(subject.first.date.month).to eq(two_months_ago_number)
         end
       end
+
+      context '@param a non numeric value (abc)' do
+        it { expect { Receipt.month('abc') }.to raise_error(ArgumentError) }
+      end
     end
   end
 
@@ -93,6 +97,10 @@ RSpec.describe Receipt, type: :model do
         it 'should have the year number: 2013' do
           expect(subject.first.date.year).to eq(two_years_ago_number)
         end
+      end
+
+      context '@param a non numeric value (abc)' do
+        it { expect { Receipt.year('abc') }.to raise_error(ArgumentError) }
       end
     end
   end
