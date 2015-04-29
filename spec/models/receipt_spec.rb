@@ -60,7 +60,44 @@ RSpec.describe Receipt, type: :model do
     end
   end
 
-  # -- 2. #spend_total --------------------------------------------------------#
+  # -- 2. #year --------------------------------------------------------------#
+  describe '#year' do
+    context 'when having 2 receipts in this month and 1 two months ago' do
+      @two_years_ago_number = (Time.zone.now - 2.years).year
+      let(:two_years_ago_number) { (Time.zone.now - 2.years).year }
+
+      before do
+        2.times { FactoryGirl.create(:receipt) }
+        FactoryGirl.create(:receipt, date: (now - 2.years))
+      end
+
+      it 'should have 3 total receipts' do
+        expect(Receipt.all.count).to eq(3)
+      end
+
+      context '@param current year number (2015)' do
+        subject { Receipt.year(now.year) }
+
+        it 'should find 2 receipts' do
+          expect(subject.count).to eq(2)
+        end
+      end
+
+      context '@param year from 2 years ago (2013)' do
+        subject { Receipt.year((now - 2.year).year) }
+
+        it 'should find 1 receipt for the year' do
+          expect(subject.count).to eq(1)
+        end
+
+        it 'should have the year number: 2013' do
+          expect(subject.first.date.year).to eq(two_years_ago_number)
+        end
+      end
+    end
+  end
+
+  # -- 3. #spend_total --------------------------------------------------------#
   describe '#spend_total' do
     subject { Receipt.spend_total }
 
