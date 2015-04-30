@@ -15,6 +15,9 @@ module API
           },
           receipts: @receipts
         }
+      rescue NoMethodError
+        rescue_output
+      end
 
       private
 
@@ -22,6 +25,10 @@ module API
         month_number = params[:month] ? params[:month] : Date.today.month
         Date.today.change(day: 1, month: month_number.to_i).month
       end
+
+      def rescue_output
+        render json: { status: 400, error: 'Bad request' },
+               status: :bad_request
       end
     end
   end
