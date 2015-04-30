@@ -59,7 +59,7 @@ RSpec.describe Receipt, type: :model do
       end
 
       context '@param a non numeric value (abc)' do
-        it { expect { Receipt.month('abc') }.to raise_error(ArgumentError) }
+        it { expect(Receipt.month('abc')).to eq(nil) }
       end
     end
   end
@@ -100,7 +100,7 @@ RSpec.describe Receipt, type: :model do
       end
 
       context '@param a non numeric value (abc)' do
-        it { expect { Receipt.year('abc') }.to raise_error(ArgumentError) }
+        it { expect(Receipt.month('abc')).to eq(nil) }
       end
     end
   end

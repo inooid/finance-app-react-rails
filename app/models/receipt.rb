@@ -9,27 +9,24 @@ class Receipt < ActiveRecord::Base
 
   # - Scopes-------------------------------------------------------------------#
   scope :spend_total, -> { sum(:amount) }
-  scope :spend_this_month, -> { month(Date.today.month).sum(:amount) }
+  scope :spend_this_month, -> (month_number = Date.today.month) { month(month_number).sum(:amount) }
 
   # Gets receipts for a specific month number (default scoped for Date.today)
   # @param month_number [String/Integer] the month number to be querying for
   # @return [ActiveRecord::Relation] collection of receipts matching the month
   #   number (of todays year)
   def self.month(month_number)
-    unless month_number.is_a?(Fixnum)
-      raise ArgumentError, 'Argument is not numeric'
-    end
-    date = DateTime.now.change(month: month_number.to_i)
-    where('date >= ? AND date <= ?', date.beginning_of_month, date.end_of_month)
+    date = DateTime.now.change(day: 1, month: month_number.to_i)
+    where('date >= ? AND date <= ?', date, date.end_of_month)
+  rescue ArgumentError
+    return
   end
 
   # Gets receipts for a specific year (default scoped by todays year)
   # @param year_number [String/Integer] the year number to be querying for
   # @return [ActiveRecord::Relation] collection of receipts matching the year
   def self.year(year_number)
-    unless year_number.is_a?(Fixnum)
-      raise ArgumentError, 'Argument is not numeric'
-    end
+    return if year_number.to_i == 0
     date = DateTime.now.change(year: year_number.to_i)
     where('date >= ? AND date <= ?', date.beginning_of_year, date.end_of_year)
   end
