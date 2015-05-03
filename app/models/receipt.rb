@@ -9,7 +9,14 @@ class Receipt < ActiveRecord::Base
 
   # - Scopes-------------------------------------------------------------------#
   scope :spend_total, -> { sum(:amount) }
-  scope :spend_this_month, -> (month_number = Date.today.month) { month(month_number).sum(:amount) }
+
+  # Gets the total amount for the currently scoped month
+  # @param month_number [Integer] The month number you want to scope it for
+  #   default_value: month number of the current month
+  # @return [Decimal] the total amount spend for the given month
+  def self.spend_this_month(month_number = Date.today.month)
+    month(month_number).sum(:amount)
+  end
 
   # Gets receipts for a specific month number (default scoped for Date.today)
   # @param month_number [String/Integer] the month number to be querying for
