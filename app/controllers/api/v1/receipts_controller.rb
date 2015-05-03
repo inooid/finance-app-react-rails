@@ -15,7 +15,7 @@ module API
           },
           receipts: @receipts
         }
-      rescue NoMethodError
+      rescue NoMethodError, ArgumentError
         rescue_output
       end
 
