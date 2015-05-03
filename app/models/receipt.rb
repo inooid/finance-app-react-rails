@@ -8,6 +8,8 @@ class Receipt < ActiveRecord::Base
   validates :amount, presence: true
 
   # - Scopes-------------------------------------------------------------------#
+  # Gets the total amount of all Receipts
+  # @return [Decimal] the total amount spend over all receipts
   scope :spend_total, -> { sum(:amount) }
 
   # Gets the total amount for the currently scoped month
