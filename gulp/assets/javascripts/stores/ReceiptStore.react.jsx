@@ -8,7 +8,7 @@ var CHANGE_EVENT = 'change';
 
 var _receipts = [];
 var _errors = [];
-var _receipt = { euros: '', cents: '', date: '' };
+var _receipt = { amount: '', date: '' };
 
 var ReceiptStore = assign({}, EventEmitter.prototype, {
   emitChange: function() {

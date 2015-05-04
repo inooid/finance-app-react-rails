@@ -8,7 +8,7 @@ var moment = require('moment');
 var Router = require('react-router');
 var Link = Router.Link;
 
-var ReceiptPage = React.createClass({
+var DashboardPage = React.createClass({
 
   getInitialState: function() {
     return {
@@ -31,7 +31,7 @@ var ReceiptPage = React.createClass({
   },
 
   _onChange: function() {
-    var receipts = ReceiptStore.getAllReceipts()
+    var receipts = ReceiptStore.getAllReceipts().receipts
     var dataForChart = this._formatDataForChart(receipts)
 
     this.setState({
@@ -109,4 +109,4 @@ var ReceiptPage = React.createClass({
 //   }
 // });
 
-module.exports = ReceiptPage;
+module.exports = DashboardPage;
