@@ -22,8 +22,7 @@ module API
       private
 
       def month_param
-        month_number = params[:month] ? params[:month] : Date.today.month
-        Date.today.change(day: 1, month: month_number.to_i).month
+        params[:month] ? params[:month] : Date.today.month
       end
 
       def rescue_output
