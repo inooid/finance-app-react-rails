@@ -1,4 +1,6 @@
 var React = require('react');
+var ReceiptStore = require('../stores/ReceiptStore.react.jsx');
+var ReceiptActionCreators = require('../actions/ReceiptActionCreators.react.jsx');
 
 var Header = React.createClass({
   render: function() {
@@ -6,7 +8,7 @@ var Header = React.createClass({
       <header>
         <div className="container">
           <Logo />
-          <Statistics initialStatistics={ this.props.statistics } />
+          <Statistics />
         </div>
       </header>
     );
@@ -27,32 +29,39 @@ var Logo = React.createClass({
 var Statistics = React.createClass({
   getInitialState: function() {
     return {
-      statistics: this.props.initialStatistics
+      statistics: {
+        spendThisMonth: 0,
+        totalSpend: 0,
+        averageAmount: 0
+      }
     };
   },
 
-  render: function() {
-    var statistics = this.state.statistics.map(function(statistic) {
-      return (
-        <StatisticsItem key={statistic.id} statistic={statistic} />
-      );
+  componentDidMount: function() {
+    ReceiptStore.addChangeListener(this._onChange);
+    ReceiptActionCreators.loadReceipts();
+  },
+
+  componentWillUnmount: function() {
+    ReceiptStore.removeChangeListener(this._onChange);
+  },
+
+  _onChange: function() {
+    var stats = ReceiptStore.getAllReceipts().stats
+
+    this.setState({
+      statistics: stats,
+      errors: ReceiptStore.getErrors(),
     });
+  },
+
+  render: function() {
     return (
       <div className="statistics">
-        {statistics}
-      </div>
-    );
-  }
-});
-
-var StatisticsItem = React.createClass({
-  render: function() {
-    var statistic = this.props.statistic;
-
-    return (
-      <div className="stat">
-        <div className="title">{statistic.title}</div>
-        <div className="amount">&euro; {statistic.euros},{statistic.cents}</div>
+        <div className="stat">
+          <div className="title">Spend this month</div>
+          <div className="amount">&euro; {this.state.statistics.spendThisMonth}</div>
+        </div>
       </div>
     );
   }

@@ -6,9 +6,9 @@ var assign = require('object-assign');
 var ActionTypes = SmallConstants.ActionTypes;
 var CHANGE_EVENT = 'change';
 
-var _receipts = [];
+var _receipts = { stats: {}, receipts: [] };
 var _errors = [];
-var _receipt = { amount: '', date: '' };
+var _receipt = { id: 0, amount: '', date: '' };
 
 var ReceiptStore = assign({}, EventEmitter.prototype, {
   emitChange: function() {
@@ -25,6 +25,10 @@ var ReceiptStore = assign({}, EventEmitter.prototype, {
 
   getAllReceipts: function() {
     return _receipts;
+  },
+
+  getAllStatistics: function() {
+    return _receipts.stats;
   },
 
   getReceipt: function() {
